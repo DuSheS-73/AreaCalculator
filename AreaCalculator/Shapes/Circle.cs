@@ -1,8 +1,8 @@
 ﻿namespace AreaCalculator.Shapes
 {
-    public class Circle : IShape
+    public sealed class Circle : IShape
     {
-        public Circle(double radius)
+        public Circle(ulong radius)
         {
             Radius = radius;
         }
