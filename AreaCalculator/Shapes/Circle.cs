@@ -2,9 +2,16 @@
 {
     public class Circle : IShape
     {
+        public Circle(double radius)
+        {
+            Radius = radius;
+        }
+
+        public double Radius { get; }
+
         public double CalculateArea()
         {
-            throw new NotImplementedException();
+            return Math.PI * Radius *Radius;
         }
     }
 }
