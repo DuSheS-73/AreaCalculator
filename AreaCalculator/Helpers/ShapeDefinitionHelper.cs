@@ -10,10 +10,13 @@ namespace AreaCalculator.Helpers
         /// <param name="values"></param>
         /// <returns>Instance assignable from IShape</returns>
         /// <exception cref="ArgumentException">Throws if parameter is null or empty or values count doesn't match the quantity of declared shapes</exception>
-        public IShape DefineShape(params ulong[] values)
+        public IShape DefineShape(params double[] values)
         {
             if (values == null && values.Length == 0)
                 throw new ArgumentException($"Parameter {nameof(values)} is Null or empty");
+
+            if (values.Any(x => x < 0))
+                throw new ArgumentException($"Side length cannot be less than 0");
 
             return values.Length switch
             {

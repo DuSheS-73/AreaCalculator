@@ -2,8 +2,11 @@
 {
     public sealed class Circle : IShape
     {
-        public Circle(ulong radius)
+        public Circle(double radius)
         {
+            if (radius < 0)
+                throw new ArgumentException($"{nameof(radius)} cannot be less than 0");
+
             Radius = radius;
         }
 
