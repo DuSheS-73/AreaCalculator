@@ -2,9 +2,12 @@
 {
     public sealed class Triangle : IShape
     {
-        public Triangle(ulong a, ulong b, ulong c)
+        public Triangle(double a, double b, double c)
         {
-            ulong[] sides = new ulong[] { a, b, c };
+            if (a < 0 || b < 0 || c < 0)
+                throw new ArgumentException($"Side length cannot be less than 0");
+
+            double[] sides = new double[] { a, b, c };
             Array.Sort(sides);
 
             if (sides[2] > sides[0] + sides[1])
