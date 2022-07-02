@@ -15,6 +15,9 @@ namespace AreaCalculator.Helpers
             if (values == null && values.Length == 0)
                 throw new ArgumentException($"Parameter {nameof(values)} is Null or empty");
 
+            if (values.Any(x => x < 0))
+                throw new ArgumentException($"Side length cannot be less than 0");
+
             return values.Length switch
             {
                 1 => new Circle(values[0]),
